@@ -7,7 +7,7 @@ import { INavItem } from 'components/navigation-menu/types';
 export const NAV_ITEMS: INavItem[] = [
     {
         text: 'Assets',
-        link: '/',
+        link: '/assets',
         icon: <AccountBalanceWalletIcon />,
     },
     {
