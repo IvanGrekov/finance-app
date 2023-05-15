@@ -1,4 +1,4 @@
 export enum EAssetsType {
-    CASH = 'cash',
+    CASH = '',
     CRYPTO = 'crypto',
 }

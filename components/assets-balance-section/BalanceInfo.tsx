@@ -1,17 +1,16 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import { IBalanceInfoProps } from 'components/assets-balance-section/types';
-import { useIsCrypto } from 'hooks/assetsTypes.hooks';
+import { useIsCrypto } from 'hooks/assetsType.hooks';
 
-export default function BalanceInfo({ value }: IBalanceInfoProps): JSX.Element {
+export default function BalanceInfo(): JSX.Element {
     const isCrypto = useIsCrypto();
 
     return (
         <Box>
             <Typography>Balance</Typography>
-            <Typography>{value} $</Typography>
-            {isCrypto && <Typography>{value} BTC</Typography>}
+            <Typography>2750 $</Typography>
+            {isCrypto && <Typography>≈ 0.1 BTC</Typography>}
         </Box>
     );
 }

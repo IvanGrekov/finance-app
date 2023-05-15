@@ -2,12 +2,11 @@ import Stack from '@mui/material/Stack';
 
 import BalanceActions from 'components/assets-balance-section/BalanceActions';
 import BalanceInfo from 'components/assets-balance-section/BalanceInfo';
-import { IBalanceInfoProps } from 'components/assets-balance-section/types';
 
-export default function AssetsBalanceSection(props: IBalanceInfoProps): JSX.Element {
+export default function AssetsBalanceSection(): JSX.Element {
     return (
-        <Stack>
-            <BalanceInfo {...props} />
+        <Stack justifyContent="space-between">
+            <BalanceInfo />
             <BalanceActions />
         </Stack>
     );

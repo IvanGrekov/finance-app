@@ -13,7 +13,12 @@ export const useGetUpdateSearchParams: TUseGetUpdateSearchParams = () => {
         // @ts-ignore
         const currentSearchParams = new URLSearchParams(searchParams);
 
-        currentSearchParams.set(key, value);
+        if (value === '') {
+            currentSearchParams.delete(key);
+        } else {
+            currentSearchParams.set(key, value);
+        }
+
         router.push(`${pathname}?${currentSearchParams.toString()}`);
     };
 };

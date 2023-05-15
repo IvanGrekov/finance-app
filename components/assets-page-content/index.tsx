@@ -10,7 +10,7 @@ export default function AssetsPageContent(): JSX.Element {
         <Grid container={true} spacing={2} p={2}>
             <Grid item={true} xs={6}>
                 <SectionWrapper>
-                    <AssetsBalanceSection value={2750} />
+                    <AssetsBalanceSection />
                 </SectionWrapper>
             </Grid>
 
