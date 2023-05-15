@@ -1,9 +1,15 @@
-import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 import { PERIOD_FILTER_SEARCH_PARAM_NAME } from 'constants/periodFilter';
 
 export const usePeriodFilterValue = (): string => {
-    const searchParams = useSearchParams();
+    const { query } = useRouter();
 
-    return searchParams.get(PERIOD_FILTER_SEARCH_PARAM_NAME) || '';
+    const value = query[PERIOD_FILTER_SEARCH_PARAM_NAME];
+
+    if (Array.isArray(value)) {
+        return value[0];
+    }
+
+    return value || '';
 };

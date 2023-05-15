@@ -1,15 +1,13 @@
-'use client';
-
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 import { PERIOD_FILTER_CONFIGS } from 'components/period-filter/constants';
 import { PERIOD_FILTER_SEARCH_PARAM_NAME } from 'constants/periodFilter';
 import { useGetUpdateSearchParams } from 'hooks/searchParams.hooks';
 
 export default function PeriodFilters(): JSX.Element {
-    const searchParams = useSearchParams();
+    const { query } = useRouter();
 
     const updateSearchParams = useGetUpdateSearchParams();
 
@@ -17,7 +15,7 @@ export default function PeriodFilters(): JSX.Element {
         updateSearchParams(PERIOD_FILTER_SEARCH_PARAM_NAME, newValue);
     };
 
-    const currentValue = searchParams.get(PERIOD_FILTER_SEARCH_PARAM_NAME) || '';
+    const currentValue = query[PERIOD_FILTER_SEARCH_PARAM_NAME] || '';
 
     return (
         <ButtonGroup variant="outlined">

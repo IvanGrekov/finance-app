@@ -7,7 +7,8 @@ module.exports = {
         'plugin:import/errors',
         'plugin:import/warnings',
         'plugin:import/typescript',
-        'plugin:prettier/recommended', // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
+        'plugin:prettier/recommended',
+        'next/core-web-vitals', // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
     ],
     parser: '@typescript-eslint/parser', // Specifies the ESLint parser
     parserOptions: {

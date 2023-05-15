@@ -1,12 +1,12 @@
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 type TGetUpdateSearchParams = (key: string, value: string) => void;
 type TUseGetUpdateSearchParams = () => TGetUpdateSearchParams;
 
 export const useGetUpdateSearchParams: TUseGetUpdateSearchParams = () => {
     const router = useRouter();
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
+    const pathname = router.pathname;
+    const searchParams = router.query;
 
     return (key, value) => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -19,6 +19,8 @@ export const useGetUpdateSearchParams: TUseGetUpdateSearchParams = () => {
             currentSearchParams.set(key, value);
         }
 
-        router.push(`${pathname}?${currentSearchParams.toString()}`);
+        router.push(`${pathname}?${currentSearchParams.toString()}`, undefined, {
+            shallow: true,
+        });
     };
 };
