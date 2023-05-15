@@ -1,8 +1,6 @@
 import Drawer from '@mui/material/Drawer';
-import Stack from '@mui/material/Stack';
 
-import Logo from 'components/logo';
-import NavigationMenu from 'components/navigation-menu';
+import NavigationSidebarContent from 'components/navigation-sidebar/NavigationSidebarContent';
 import { NAVIGATION_SIDEBAR_WIDTH } from 'constants/layout';
 
 export default function NavigationSidebar(): JSX.Element {
@@ -10,6 +8,7 @@ export default function NavigationSidebar(): JSX.Element {
         <Drawer
             variant="permanent"
             sx={{
+                display: { xs: 'none', md: 'block' },
                 '& .MuiDrawer-paper': {
                     boxSizing: 'border-box',
                     width: NAVIGATION_SIDEBAR_WIDTH,
@@ -17,10 +16,7 @@ export default function NavigationSidebar(): JSX.Element {
             }}
             open={true}
         >
-            <Stack spacing={3}>
-                <Logo />
-                <NavigationMenu />
-            </Stack>
+            <NavigationSidebarContent />
         </Drawer>
     );
 }
