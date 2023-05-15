@@ -1,10 +1,15 @@
 import { Box, Typography } from '@mui/material';
 
-import { DEFAULT_PX, DEFAULT_PY } from 'constants/layout';
+import { DEFAULT_PADDING_XS } from 'constants/layout';
 
 export default function Logo(): JSX.Element {
     return (
-        <Box px={DEFAULT_PX} pt={DEFAULT_PY}>
+        <Box
+            sx={{
+                pt: DEFAULT_PADDING_XS,
+                pl: DEFAULT_PADDING_XS,
+            }}
+        >
             <Typography
                 variant="h6"
                 sx={{

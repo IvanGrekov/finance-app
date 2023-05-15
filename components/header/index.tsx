@@ -5,7 +5,12 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 
-import { DEFAULT_PX, DEFAULT_PY } from 'constants/layout';
+import {
+    DEFAULT_PADDING_XS,
+    DEFAULT_PADDING_MD,
+    DEFAULT_SMALL_PADDING_XS,
+    DEFAULT_SMALL_PADDING_MD,
+} from 'constants/layout';
 import { useMobileNavigationSidebar } from 'models/contexts/MobileNavigationSidebar';
 
 export default function Header(): JSX.Element {
@@ -20,8 +25,8 @@ export default function Header(): JSX.Element {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                px: { xs: 2, md: DEFAULT_PX },
-                py: { xs: 1, md: DEFAULT_PY },
+                px: { xs: DEFAULT_PADDING_XS, md: DEFAULT_PADDING_MD },
+                py: { xs: DEFAULT_SMALL_PADDING_XS, md: DEFAULT_SMALL_PADDING_MD },
             }}
         >
             <Toolbar>

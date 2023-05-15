@@ -8,7 +8,12 @@ import Head from 'next/head';
 import Header from 'components/header';
 import NavigationSidebar from 'components/navigation-sidebar';
 import MobileNavigationSidebar from 'components/navigation-sidebar/MobileNavigationSidebar';
-import { NAVIGATION_SIDEBAR_WIDTH } from 'constants/layout';
+import {
+    NAVIGATION_SIDEBAR_WIDTH,
+    DEFAULT_PADDING_XS,
+    DEFAULT_PADDING_MD,
+    DEFAULT_BORDER_RADIUS,
+} from 'constants/layout';
 import { MobileNavigationSidebarContextProvider } from 'models/contexts/MobileNavigationSidebar';
 import appTheme from 'styles/theme';
 
@@ -38,8 +43,13 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     >
                         <Header />
                         {/* TODO: add loader context provider */}
-                        <Box overflow="auto" p={3}>
-                            <Paper elevation={2}>
+                        <Box
+                            sx={{
+                                overflow: 'auto',
+                                p: { xs: DEFAULT_PADDING_XS, md: DEFAULT_PADDING_MD },
+                            }}
+                        >
+                            <Paper elevation={2} sx={{ borderRadius: DEFAULT_BORDER_RADIUS }}>
                                 <Component {...pageProps} />
                             </Paper>
                         </Box>
