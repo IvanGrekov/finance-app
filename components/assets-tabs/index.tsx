@@ -1,24 +1,34 @@
 'use client';
 
 import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
 import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
 import { useSearchParams } from 'next/navigation';
 
-import TabList from 'components/assets-tabs/TabList';
-import TabPanels from 'components/assets-tabs/TabPanels';
-import { ASSETS_TYPE_SEARCH_PARAM_NAME } from 'constants/assetsTabs';
+import { ASSETS_TYPE_SEARCH_PARAM_NAME } from 'constants/assetsType';
+import { useGetUpdateSearchParams } from 'hooks/searchParams.hooks';
+import { EAssetsType } from 'models/types/assetsType';
 
 export default function AssetsTabs(): JSX.Element {
     const searchParams = useSearchParams();
-    const assetsTypeValue = searchParams.get(ASSETS_TYPE_SEARCH_PARAM_NAME) || '';
+
+    const updateSearchParams = useGetUpdateSearchParams();
+
+    const handleChange = (_: React.SyntheticEvent, newValue: string): void => {
+        updateSearchParams(ASSETS_TYPE_SEARCH_PARAM_NAME, newValue);
+    };
+
+    const value = searchParams.get(ASSETS_TYPE_SEARCH_PARAM_NAME) || '';
 
     return (
-        <TabContext value={assetsTypeValue}>
+        <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <TabList />
+                <TabList onChange={handleChange}>
+                    <Tab label="Cash" value={EAssetsType.CASH} />
+                    <Tab label="Crypto" value={EAssetsType.CRYPTO} />
+                </TabList>
             </Box>
-
-            <TabPanels />
         </TabContext>
     );
 }
