@@ -21,8 +21,8 @@ export default function AssetsTabs(): JSX.Element {
         <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <TabList onChange={handleChange}>
-                    <Tab label="Cash" value={EAssetsType.CASH} />
-                    <Tab label="Crypto" value={EAssetsType.CRYPTO} />
+                    <Tab label="Cash" value={EAssetsType.CASH} tabIndex={0} />
+                    <Tab label="Crypto" value={EAssetsType.CRYPTO} tabIndex={0} />
                 </TabList>
             </Box>
         </TabContext>

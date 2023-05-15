@@ -10,7 +10,10 @@ export default function NavigationSidebar(): JSX.Element {
         <Drawer
             variant="permanent"
             sx={{
-                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: NAVIGATION_SIDEBAR_WIDTH },
+                '& .MuiDrawer-paper': {
+                    boxSizing: 'border-box',
+                    width: NAVIGATION_SIDEBAR_WIDTH,
+                },
             }}
             open={true}
         >

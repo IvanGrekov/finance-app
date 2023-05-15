@@ -19,7 +19,10 @@ export const useGetUpdateSearchParams: TUseGetUpdateSearchParams = () => {
             currentSearchParams.set(key, value);
         }
 
-        router.push(`${pathname}?${currentSearchParams.toString()}`, undefined, {
+        const newSearchParams =
+            currentSearchParams.size === 0 ? '' : `?${currentSearchParams.toString()}`;
+
+        router.push(`${pathname}${newSearchParams}`, undefined, {
             shallow: true,
         });
     };

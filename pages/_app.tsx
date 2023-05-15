@@ -8,7 +8,7 @@ import Head from 'next/head';
 import Header from 'components/header';
 import NavigationSidebar from 'components/navigation-sidebar';
 import { NAVIGATION_SIDEBAR_WIDTH } from 'constants/layout';
-import theme from 'styles/theme';
+import appTheme from 'styles/theme';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -19,12 +19,12 @@ import '@fontsource/roboto/700.css';
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     return (
-        <>
-            <Head>
-                <title>Finance App</title>
-            </Head>
+        <ThemeProvider theme={appTheme}>
+            <Box component="main">
+                <Head>
+                    <title>Finance App</title>
+                </Head>
 
-            <ThemeProvider theme={theme}>
                 <CssBaseline />
                 <NavigationSidebar />
                 <Stack
@@ -34,13 +34,13 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                 >
                     <Header />
                     {/* TODO: add loader context provider */}
-                    <Box component="main" overflow="auto" p={3}>
+                    <Box overflow="auto" p={3}>
                         <Paper elevation={2}>
                             <Component {...pageProps} />
                         </Paper>
                     </Box>
                 </Stack>
-            </ThemeProvider>
-        </>
+            </Box>
+        </ThemeProvider>
     );
 }
