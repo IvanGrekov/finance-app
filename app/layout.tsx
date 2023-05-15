@@ -4,6 +4,7 @@ import { PropsWithChildren } from 'react';
 
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Head from 'next/head';
 
@@ -24,13 +25,15 @@ export default function RootLayout({ children }: PropsWithChildren): JSX.Element
                     <CssBaseline />
                     <NavigationSidebar />
                     <Stack
-                        height="200vh"
+                        height="100vh"
                         width={`calc(100% - ${NAVIGATION_SIDEBAR_WIDTH}px)`}
                         ml={`${NAVIGATION_SIDEBAR_WIDTH}px`}
                     >
                         <Header />
                         {/* TODO: add loader context provider */}
-                        <Box>{children}</Box>
+                        <Box component="main" overflow="auto" p={2}>
+                            <Paper elevation={2}>{children}</Paper>
+                        </Box>
                     </Stack>
                 </ThemeProvider>
             </body>

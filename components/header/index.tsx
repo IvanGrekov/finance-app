@@ -10,15 +10,14 @@ export default function Header(): JSX.Element {
     // TODO: add loader
     return (
         <Box
+            component="header"
             display="flex"
             justifyContent="flex-end"
             px={DEFAULT_PX}
             py={DEFAULT_PY}
-            position="sticky"
             top={0}
             left={0}
             bgcolor={theme.palette.background.paper}
-            boxShadow={theme.shadows[3]}
         >
             <AccountCircle color="primary" fontSize="large" />
         </Box>
