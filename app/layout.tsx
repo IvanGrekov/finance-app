@@ -31,7 +31,7 @@ export default function RootLayout({ children }: PropsWithChildren): JSX.Element
                     >
                         <Header />
                         {/* TODO: add loader context provider */}
-                        <Box component="main" overflow="auto" p={2}>
+                        <Box component="main" overflow="auto" p={3}>
                             <Paper elevation={2}>{children}</Paper>
                         </Box>
                     </Stack>
