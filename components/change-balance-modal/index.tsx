@@ -1,9 +1,12 @@
 import Typography from '@mui/material/Typography';
 
 import ChangeCacheBalanceForm from 'components/change-cache-balance-form';
+import ChangeCryptoBalanceForm from 'components/change-crypto-balance-form';
 import Modal from 'components/modal';
 import { IModalProps } from 'components/modal/types';
+import { useIsCrypto } from 'hooks/assetsType.hooks';
 import { EHistoryEventType } from 'models/types/historyEvent';
+import { getIsDeposit } from 'utils/historyEvent.utils';
 
 interface IChangeBalanceModalProps extends IModalProps {
     type: EHistoryEventType;
@@ -14,13 +17,15 @@ export default function ChangeBalanceModal({
     open,
     onClose,
 }: IChangeBalanceModalProps): JSX.Element {
+    const Form = useIsCrypto() ? ChangeCryptoBalanceForm : ChangeCacheBalanceForm;
+
     return (
         <Modal open={open} onClose={onClose}>
             <Typography variant="h6" component="h2" mb={4}>
-                {type === EHistoryEventType.DEPOSIT ? 'Top up your wallet' : 'Withdraw your assets'}
+                {getIsDeposit(type) ? 'Top up your wallet' : 'Withdraw your assets'}
             </Typography>
 
-            <ChangeCacheBalanceForm type={type} closeModal={onClose} />
+            <Form type={type} onSubmitCompleted={onClose} />
         </Modal>
     );
 }

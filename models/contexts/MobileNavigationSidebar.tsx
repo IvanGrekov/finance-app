@@ -1,17 +1,15 @@
 import React, { createContext, useState, useContext, PropsWithChildren } from 'react';
 
-interface IMobileNavigationSidebarContextProps {
+interface IMobileNavigationSidebarContextValues {
     open: boolean;
     toggleSidebar: () => void;
 }
 
-const MobileNavigationSidebarContext = createContext<
-    IMobileNavigationSidebarContextProps | undefined
->(undefined);
+const MobileNavigationSidebarContext = createContext<IMobileNavigationSidebarContextValues | null>(
+    null,
+);
 
-export function MobileNavigationSidebarContextProvider({
-    children,
-}: PropsWithChildren): JSX.Element {
+export function MobileNavigationSidebarProvider({ children }: PropsWithChildren): JSX.Element {
     const [open, setOpen] = useState(false);
 
     const toggleSidebar = (): void => setOpen((prev) => !prev);
@@ -23,11 +21,13 @@ export function MobileNavigationSidebarContextProvider({
     );
 }
 
-export const useMobileNavigationSidebar = (): IMobileNavigationSidebarContextProps => {
+export const useMobileNavigationSidebar = (): IMobileNavigationSidebarContextValues => {
     const context = useContext(MobileNavigationSidebarContext);
 
     if (!context) {
-        throw new Error('useSidebar must be used within a SidebarProvider');
+        throw new Error(
+            'useMobileNavigationSidebar must be used within a MobileNavigationSidebarProvider',
+        );
     }
 
     return context;

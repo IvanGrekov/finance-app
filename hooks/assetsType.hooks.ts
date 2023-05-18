@@ -9,7 +9,7 @@ export const useAssetsTypeValue = (): string => {
     const value = query[ASSETS_TYPE_SEARCH_PARAM_NAME];
 
     if (Array.isArray(value)) {
-        return value[0];
+        return value.at(-1) || '';
     }
 
     return value || '';

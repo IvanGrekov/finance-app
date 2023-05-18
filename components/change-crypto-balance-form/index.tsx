@@ -1,10 +1,10 @@
 import ChangeBalanceForm from 'components/change-balance-form';
 import { IChangeBalanceFormValues } from 'components/change-balance-form/types';
-import { CHANGE_CACHE_BALANCE_FORM_ID } from 'components/change-cache-balance-form/constants/';
 import {
     getDepositCashValidation,
     getWithdrawCashValidation,
 } from 'components/change-cache-balance-form/utils/validation.utils';
+import { CHANGE_CRYPTO_BALANCE_FORM_ID } from 'components/change-crypto-balance-form/constants';
 import { useWForm } from 'components/form';
 import { EAssetsType } from 'models/types/assetsType';
 import { EHistoryEventType } from 'models/types/historyEvent';
@@ -34,11 +34,11 @@ export default function ChangeCacheBalanceForm({
 
     return (
         <ChangeBalanceForm
-            id={CHANGE_CACHE_BALANCE_FORM_ID}
+            id={CHANGE_CRYPTO_BALANCE_FORM_ID}
             methods={methods}
             onSubmit={onSubmit}
             isDeposit={isDeposit}
-            assetsType={EAssetsType.CASH}
+            assetsType={EAssetsType.CRYPTO}
         />
     );
 }

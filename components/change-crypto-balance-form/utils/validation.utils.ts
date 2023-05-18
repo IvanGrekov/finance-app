@@ -12,7 +12,7 @@ export const getDepositCashValidation = (): Yup.ObjectSchema<IChangeBalanceFormV
         amount: Yup.number()
             .required(getRequiredAmountErrorMessage())
             .min(0, getMinAmountErrorMessage()),
-        currency: Yup.string(),
+        currency: Yup.string().required(),
     });
 };
 
@@ -24,6 +24,6 @@ export const getWithdrawCashValidation: TGetWithdrawCashValidation = (maxValue) 
             .required(getRequiredAmountErrorMessage())
             .min(0, getMinAmountErrorMessage())
             .max(maxValue, getMaxAmountErrorMessage(maxValue)),
-        currency: Yup.string(),
+        currency: Yup.string().required(),
     });
 };

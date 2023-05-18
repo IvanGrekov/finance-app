@@ -8,7 +8,7 @@ export const usePeriodFilterValue = (): string => {
     const value = query[PERIOD_FILTER_SEARCH_PARAM_NAME];
 
     if (Array.isArray(value)) {
-        return value[0];
+        return value.at(-1) || '';
     }
 
     return value || '';

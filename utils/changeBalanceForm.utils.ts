@@ -9,3 +9,17 @@ export const getMinAmountErrorMessage = (): string => {
 export const getMaxAmountErrorMessage = (maxValue: number): string => {
     return `You can't withdraw more than ${maxValue}`;
 };
+
+type TGetAmountFormattedErrorMessage = (message?: string) => string | undefined;
+
+export const getAmountFormattedErrorMessage: TGetAmountFormattedErrorMessage = (message) => {
+    if (!message) {
+        return undefined;
+    }
+
+    if (message.includes('NaN')) {
+        return getRequiredAmountErrorMessage();
+    }
+
+    return message;
+};
