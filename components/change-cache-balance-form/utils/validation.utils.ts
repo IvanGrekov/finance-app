@@ -21,7 +21,7 @@ type TGetWithdrawCashValidation = (maxValue: number) => Yup.ObjectSchema<IChange
 export const getWithdrawCashValidation: TGetWithdrawCashValidation = (maxValue) => {
     return Yup.object().shape({
         amount: Yup.number()
-            .required(getRequiredAmountErrorMessage())
+            .required(getRequiredAmountErrorMessage('withdraw'))
             .min(0, getMinAmountErrorMessage())
             .max(maxValue, getMaxAmountErrorMessage(maxValue)),
         currency: Yup.string(),

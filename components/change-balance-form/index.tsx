@@ -27,25 +27,26 @@ export default function ChangeBalanceForm({
     const isCrypto = useIsCrypto();
     const { data: cryptoList, isLoading: isCryptoListLoading } = useCryptoList();
 
-    const { handleSubmit, register, formState } = methods;
+    const { handleSubmit, register, formState, setValue, trigger } = methods;
 
     const {
-        errors: { amount: amountError, currency: currencyError },
+        errors: { currency: currencyError, amount: amountError },
     } = formState;
 
     return (
         <form id={id} onSubmit={handleSubmit(onSubmit)}>
             <FormControl fullWidth={true}>
                 <Stack spacing={3}>
-                    <AmountField error={amountError} fieldProps={register('amount')} />
-
                     {isCrypto && (
                         <CurrencyField
                             error={currencyError}
-                            fieldProps={register('currency')}
                             cryptoList={cryptoList}
+                            setValue={setValue}
+                            trigger={trigger}
                         />
                     )}
+
+                    <AmountField error={amountError} fieldProps={register('amount')} />
 
                     <SubmitButton
                         isDeposit={isDeposit}

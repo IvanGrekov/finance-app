@@ -11,6 +11,15 @@ const nextConfig = {
             },
         ];
     },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'www.cryptocompare.com',
+                pathname: '/media/**',
+            },
+        ],
+    },
 };
 
 module.exports = nextConfig;

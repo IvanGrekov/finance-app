@@ -6,7 +6,6 @@ import {
     getWithdrawCashValidation,
 } from 'components/change-cache-balance-form/utils/validation.utils';
 import { useWForm } from 'components/form';
-import { EAssetsType } from 'models/types/assetsType';
 import { EHistoryEventType } from 'models/types/historyEvent';
 import { formatDate } from 'utils/date.utils';
 import { getIsDeposit } from 'utils/historyEvent.utils';
@@ -38,7 +37,6 @@ export default function ChangeCacheBalanceForm({
             methods={methods}
             onSubmit={onSubmit}
             isDeposit={isDeposit}
-            assetsType={EAssetsType.CASH}
         />
     );
 }

@@ -13,7 +13,7 @@ export const formatCryptoList = (data?: TApiCoinList): TCryptoList => {
             id: Id,
             name: Name,
             fullName: FullName,
-            imageUrl: `https://www.cryptocompare.com/${ImageUrl}`,
+            imageUrl: `https://www.cryptocompare.com${ImageUrl}`,
             price: PRICE,
             symbol: FROMSYMBOL,
         };

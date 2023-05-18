@@ -1,5 +1,9 @@
-export const getRequiredAmountErrorMessage = (): string => {
-    return 'Please enter the amount you want to deposit';
+export const getRequiredAmountErrorMessage = (action = 'deposit'): string => {
+    return `Please enter the amount you want to ${action}`;
+};
+
+export const getRequiredCurrencyErrorMessage = (action = 'deposit'): string => {
+    return `Please select the currency you want to ${action}`;
 };
 
 export const getMinAmountErrorMessage = (): string => {
