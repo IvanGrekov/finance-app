@@ -5,7 +5,7 @@ import BalanceInfo from 'components/assets-balance-section/BalanceInfo';
 
 export default function AssetsBalanceSection(): JSX.Element {
     return (
-        <Stack justifyContent="space-between" height="100%">
+        <Stack spacing={4} sx={{ height: '100%', justifyContent: 'space-between' }}>
             <BalanceInfo />
             <BalanceActions />
         </Stack>
