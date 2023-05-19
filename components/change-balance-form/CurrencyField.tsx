@@ -30,7 +30,9 @@ export default function CurrencyField({
     }
 
     const onInputChange = (_: SyntheticEvent<Element, Event>, value: string): void => {
-        setValue('currency', value);
+        const { name } = cryptoList.find((crypto) => crypto.fullName === value) || {};
+
+        setValue('currency', name);
         trigger('currency');
     };
 
@@ -38,7 +40,7 @@ export default function CurrencyField({
         <Autocomplete
             options={cryptoList}
             autoHighlight
-            getOptionLabel={(option): string => option.name}
+            getOptionLabel={(option): string => option.fullName}
             renderOption={(props, option): JSX.Element => (
                 <Box component="li" {...props}>
                     <Image src={option.imageUrl} alt={option.fullName} width={20} height={20} />

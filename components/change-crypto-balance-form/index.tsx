@@ -6,12 +6,12 @@ import {
     getWithdrawCryptoValidation,
 } from 'components/change-crypto-balance-form/utils/validation.utils';
 import { useWForm } from 'components/form';
-import { EHistoryEventType } from 'models/types/historyEvent';
+import { ETransactionType } from 'models/types/transaction';
 import { formatDate } from 'utils/date.utils';
-import { getIsDeposit } from 'utils/historyEvent.utils';
+import { getIsDeposit } from 'utils/transaction.utils';
 
 interface IChangeCacheBalanceFormProps {
-    type: EHistoryEventType;
+    type: ETransactionType;
     onSubmitCompleted: () => void;
 }
 

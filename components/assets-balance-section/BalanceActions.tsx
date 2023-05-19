@@ -6,23 +6,23 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
 import ChangeBalanceModal from 'components/change-balance-modal';
-import { EHistoryEventType } from 'models/types/historyEvent';
+import { ETransactionType } from 'models/types/transaction';
 
 export default function BalanceActions(): JSX.Element {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [modalType, setModalType] = useState(EHistoryEventType.DEPOSIT);
+    const [modalType, setModalType] = useState(ETransactionType.DEPOSIT);
 
     const onClose = (): void => {
         setIsModalOpen(false);
     };
 
     const openDepositModal = (): void => {
-        setModalType(EHistoryEventType.DEPOSIT);
+        setModalType(ETransactionType.DEPOSIT);
         setIsModalOpen(true);
     };
 
     const openWithdrawModal = (): void => {
-        setModalType(EHistoryEventType.WITHDRAW);
+        setModalType(ETransactionType.WITHDRAW);
         setIsModalOpen(true);
     };
 

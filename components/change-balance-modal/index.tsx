@@ -5,11 +5,11 @@ import ChangeCryptoBalanceForm from 'components/change-crypto-balance-form';
 import Modal from 'components/modal';
 import { IModalProps } from 'components/modal/types';
 import { useIsCrypto } from 'hooks/assetsType.hooks';
-import { EHistoryEventType } from 'models/types/historyEvent';
-import { getIsDeposit } from 'utils/historyEvent.utils';
+import { ETransactionType } from 'models/types/transaction';
+import { getIsDeposit } from 'utils/transaction.utils';
 
 interface IChangeBalanceModalProps extends IModalProps {
-    type: EHistoryEventType;
+    type: ETransactionType;
 }
 
 export default function ChangeBalanceModal({
