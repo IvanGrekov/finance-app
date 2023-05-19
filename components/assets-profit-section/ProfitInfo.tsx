@@ -7,8 +7,8 @@ export default function ProfitInfo(): JSX.Element {
     return (
         <Typography>
             Profit:{' '}
-            <Typography component="span" color={theme.palette.error.main}>
-                -5$
+            <Typography component="span" color={theme.palette.success.main}>
+                1800$
             </Typography>
         </Typography>
     );

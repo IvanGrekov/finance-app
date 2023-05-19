@@ -27,30 +27,28 @@ export default function BalanceActions(): JSX.Element {
     };
 
     return (
-        <>
-            <Box sx={{ display: 'flex', gap: 2, alignSelf: 'stretch' }}>
-                <Button
-                    variant="contained"
-                    color="success"
-                    startIcon={<AddIcon />}
-                    onClick={openDepositModal}
-                    sx={{ flexGrow: 1 }}
-                >
-                    Income
-                </Button>
+        <Box sx={{ display: 'flex', gap: 2, alignSelf: 'stretch' }}>
+            <Button
+                variant="contained"
+                color="success"
+                startIcon={<AddIcon />}
+                onClick={openDepositModal}
+                sx={{ flexGrow: 1 }}
+            >
+                Income
+            </Button>
 
-                <Button
-                    variant="contained"
-                    color="error"
-                    startIcon={<RemoveIcon />}
-                    onClick={openWithdrawModal}
-                    sx={{ flexGrow: 1 }}
-                >
-                    Expense
-                </Button>
-            </Box>
+            <Button
+                variant="contained"
+                color="error"
+                startIcon={<RemoveIcon />}
+                onClick={openWithdrawModal}
+                sx={{ flexGrow: 1 }}
+            >
+                Expense
+            </Button>
 
             <ChangeBalanceModal type={modalType} open={isModalOpen} onClose={onClose} />
-        </>
+        </Box>
     );
 }
